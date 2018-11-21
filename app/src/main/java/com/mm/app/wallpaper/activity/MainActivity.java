@@ -17,9 +17,9 @@ import android.view.MenuItem;
 import com.mm.app.wallpaper.R;
 import com.mm.app.wallpaper.adapter.PagerAdapter;
 import com.mm.app.wallpaper.base.BaseActivity;
-import com.mm.app.wallpaper.fragment.OneFragment;
-import com.mm.app.wallpaper.fragment.ThreeFragment;
-import com.mm.app.wallpaper.fragment.TwoFragment;
+import com.mm.app.wallpaper.fragment.ImageFragment;
+import com.mm.app.wallpaper.fragment.FindFragment;
+import com.mm.app.wallpaper.fragment.TypeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,12 +74,12 @@ public class MainActivity extends BaseActivity
         titles.add(getResources().getString(R.string.tab_type));
         titles.add(getResources().getString(R.string.tab_explore));
         List<Fragment> fragments = new ArrayList<>(3);
-        OneFragment oneFragment = new OneFragment();
-        TwoFragment twoFragment = new TwoFragment();
-        ThreeFragment threeFragment = new ThreeFragment();
-        fragments.add(oneFragment);
-        fragments.add(twoFragment);
-        fragments.add(threeFragment);
+        ImageFragment imageFragment = new ImageFragment();
+        TypeFragment typeFragment = new TypeFragment();
+        FindFragment findFragment = new FindFragment();
+        fragments.add(imageFragment);
+        fragments.add(typeFragment);
+        fragments.add(findFragment);
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments, titles);
         mViewPager.setAdapter(pagerAdapter);

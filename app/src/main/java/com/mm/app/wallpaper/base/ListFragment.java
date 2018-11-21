@@ -1,19 +1,25 @@
 package com.mm.app.wallpaper.base;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.alipictures.statemanager.StateLayout;
 import com.alipictures.statemanager.state.CoreState;
 import com.mm.app.wallpaper.R;
+import com.mm.app.wallpaper.support.rv.Differ;
 import com.mm.app.wallpaper.support.rv.LoadMoreDelegate;
 import com.mm.app.wallpaper.support.rv.SwipeRefreshDelegate;
 import com.mm.app.wallpaper.support.state.ExceptionState;
 import com.mm.app.wallpaper.support.state.LoadingState;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import me.drakeet.multitype.ItemViewBinder;
+import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 public abstract class ListFragment extends BaseFragment implements SwipeRefreshDelegate.OnSwipeRefreshListener, LoadMoreDelegate.LoadMoreListener {
@@ -25,7 +31,8 @@ public abstract class ListFragment extends BaseFragment implements SwipeRefreshD
     @BindView(R.id.recycler_view)
     RecyclerView mListView;
 
-    private MultiTypeAdapter mMultiTypeAdapter = new MultiTypeAdapter();
+    private Items mData = new Items();
+    private MultiTypeAdapter mMultiTypeAdapter = new MultiTypeAdapter(mData);
 
     private SwipeRefreshDelegate mSwipeRefreshDelegate;
     private LoadMoreDelegate mLoadMoreDelegate;
@@ -51,6 +58,11 @@ public abstract class ListFragment extends BaseFragment implements SwipeRefreshD
         mLoadMoreDelegate.attach(mListView, this);
 
         mListView.setAdapter(mMultiTypeAdapter);
+    }
+
+    public void setData(List<Object> data){
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new Differ<Object>(mData,data));
+        diffResult.dispatchUpdatesTo(mMultiTypeAdapter);
     }
 
     public abstract RecyclerView.LayoutManager getLayoutManager();

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class OneFragment extends ListFragment {
+public class ImageFragment extends ListFragment {
 
     @Override
     public RecyclerView.LayoutManager getLayoutManager() {
@@ -25,6 +25,8 @@ public class OneFragment extends ListFragment {
         super.renderViews(view);
 
         addItemDecoration(new GridDividerItemDecoration(getHostActivity(),2));
+        setUseRefresh(true);
+        setUseLoadMore(true);
 
         registerItemWithVH(Image.class,new ImageVB());
 
@@ -47,5 +49,15 @@ public class OneFragment extends ListFragment {
 
         getMultiTypeAdapter().setItems(images);
         getMultiTypeAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    public void onSwipeRefresh() {
+
+    }
+
+    @Override
+    public void onLoadMore() {
+
     }
 }
