@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.mm.app.wallpaper.adapter.ImageVB;
 import com.mm.app.wallpaper.base.ListFragment;
-import com.mm.app.wallpaper.data.Image;
+import com.mm.app.wallpaper.data.model.Image;
 import com.mm.app.wallpaper.support.rv.GridDividerItemDecoration;
 
 import java.util.ArrayList;

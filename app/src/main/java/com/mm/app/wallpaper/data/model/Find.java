@@ -1,17 +1,23 @@
-package com.mm.app.wallpaper.data;
+package com.mm.app.wallpaper.data.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "image")
-public class Image {
+@Entity(tableName = "find")
+public class Find {
 
     @ColumnInfo(name = "id")
     @PrimaryKey
     @NonNull
     private String id = "";
+
+    @ColumnInfo(name = "title")
+    private String title;
+
+    @ColumnInfo(name = "desc")
+    private String desc;
 
     @ColumnInfo(name = "url")
     private String url;
@@ -26,6 +32,22 @@ public class Image {
 
     public void setId(@NonNull String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getUrl() {

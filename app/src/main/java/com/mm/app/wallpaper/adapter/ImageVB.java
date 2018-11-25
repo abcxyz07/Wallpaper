@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.mm.app.wallpaper.R;
-import com.mm.app.wallpaper.data.Image;
+import com.mm.app.wallpaper.data.model.Image;
 import com.mm.app.wallpaper.support.glide.GlideApp;
 
 import butterknife.BindView;

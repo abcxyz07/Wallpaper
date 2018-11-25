@@ -1,13 +1,12 @@
 package com.mm.app.wallpaper;
 
-import android.app.Application;
-
 import com.alipictures.statemanager.loader.StateRepository;
+import com.mm.app.wallpaper.base.BaseApplication;
 import com.mm.app.wallpaper.support.state.ExceptionState;
 import com.mm.app.wallpaper.support.state.LoadingState;
 
 
-public class App extends Application {
+public class App extends BaseApplication {
 
     @Override
     public void onCreate() {

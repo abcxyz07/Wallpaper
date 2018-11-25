@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mm.app.wallpaper.data.Find;
+import com.mm.app.wallpaper.data.model.Find;
 
 import me.drakeet.multitype.ItemViewBinder;
 
